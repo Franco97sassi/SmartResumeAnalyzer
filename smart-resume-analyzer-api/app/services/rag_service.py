@@ -1,32 +1,39 @@
-from app.rag.document_loader import load_pdf
-from app.rag.text_splitter import split_documents
-from app.rag.vector_store import create_vector_store
-
 from langchain_community.vectorstores import Chroma
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 
-from app.database import SessionLocal
-from app.models.query_history import QueryHistory
+from app.config.settings import settings
+from app.rag.document_loader import load_pdf
+from app.rag.text_splitter import split_documents
+from app.rag.vector_store import create_vector_store
+from app.repositories.history_repository import HistoryRepository
+from app.utils.logger import logger
+from app.utils.exceptions import ApplicationException
 
-llm = ChatOllama(model="llama3.2")
+llm = ChatOllama(model=settings.OLLAMA_MODEL)
 
 embeddings = OllamaEmbeddings(
-    model="nomic-embed-text"
+    model=settings.EMBEDDING_MODEL
 )
+
+repository = HistoryRepository()
 
 
 def ask(question: str):
 
-    db = Chroma(
-        persist_directory="./db",
-        embedding_function=embeddings
-    )
+    try:
 
-    docs = db.similarity_search(question, k=4)
+        logger.info(f"Nueva pregunta: {question}")
 
-    context = "\n\n".join(doc.page_content for doc in docs)
+        db = Chroma(
+            persist_directory=settings.CHROMA_DB,
+            embedding_function=embeddings
+        )
 
-    prompt = f"""
+        docs = db.similarity_search(question, k=4)
+
+        context = "\n\n".join(doc.page_content for doc in docs)
+
+        prompt = f"""
 Responde utilizando únicamente el siguiente contexto.
 
 Contexto:
@@ -38,30 +45,36 @@ Pregunta:
 {question}
 """
 
-    response = llm.invoke(prompt)
+        response = llm.invoke(prompt)
 
-    # Guardar historial en SQLite
-    session = SessionLocal()
+        repository.save(
+            question=question,
+            answer=response.content
+        )
 
-    history = QueryHistory(
-        question=question,
-        answer=response.content
-    )
+        logger.info("Historial guardado")
 
-    session.add(history)
-    session.commit()
-    session.close()
+        return response.content
 
-    return response.content
+    except Exception as e:
 
+        logger.exception(e)
+
+        raise ApplicationException(
+            "No fue posible procesar la consulta."
+        )
 
 def index_pdf(path: str):
+
+    logger.info(f"Indexando PDF: {path}")
 
     docs = load_pdf(path)
 
     chunks = split_documents(docs)
 
     create_vector_store(chunks)
+
+    logger.info(f"PDF indexado correctamente. Chunks: {len(chunks)}")
 
     return {
         "message": "Documento indexado correctamente",
