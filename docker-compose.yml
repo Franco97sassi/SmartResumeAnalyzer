@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+
+  backend:
+    build: ./smart-resume-analyzer-api
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./smart-resume-analyzer-api:/app
+
+  frontend:
+    build: ./smart-resume-analyzer-front
+
+    ports:
+      - "5173:5173"
+
+    volumes:
+      - ./smart-resume-analyzer-front:/app
+
+    depends_on:
+      - backend
