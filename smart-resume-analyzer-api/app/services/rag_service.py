@@ -9,11 +9,20 @@ from app.repositories.history_repository import HistoryRepository
 from app.utils.logger import logger
 from app.utils.exceptions import ApplicationException
 
-llm = ChatOllama(model=settings.OLLAMA_MODEL)
+llm = ChatOllama(
+    model=settings.OLLAMA_MODEL,
+    base_url=settings.OLLAMA_BASE_URL,
+    keep_alive=settings.OLLAMA_KEEP_ALIVE,
+    num_ctx=settings.OLLAMA_NUM_CTX,
+    num_predict=settings.OLLAMA_NUM_PREDICT,
+    temperature=settings.OLLAMA_TEMPERATURE
+)
 
 embeddings = OllamaEmbeddings(
-    model=settings.EMBEDDING_MODEL
-)
+model=settings.EMBEDDING_MODEL,
+    base_url=settings.OLLAMA_BASE_URL,
+    keep_alive=settings.OLLAMA_EMBEDDING_KEEP_ALIVE
+) 
 
 repository = HistoryRepository()
 

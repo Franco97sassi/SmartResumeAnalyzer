@@ -1,0 +1,29 @@
+2026-07-09 14:26:07,068 | INFO | Indexando PDF: ./documents\IA_agentes_2026_resumen.pdf
+2026-07-09 14:26:22,035 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 14:26:22,273 | INFO | PDF indexado correctamente. Chunks: 3
+2026-07-09 14:27:04,756 | INFO | Nueva pregunta: De qué trata el documento?
+2026-07-09 14:27:04,950 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 14:27:49,621 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-09 14:28:18,222 | INFO | Historial guardado
+2026-07-09 14:29:37,354 | INFO | Nueva pregunta: Según el documento, ¿qué tecnologías menciona?
+2026-07-09 14:29:40,561 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 14:30:13,919 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-09 14:30:51,139 | INFO | Historial guardado
+2026-07-09 14:32:46,146 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-09 14:52:01,231 | INFO | Indexando PDF: ./documents\La_exploracion_espacial_2026.pdf
+2026-07-09 14:52:06,593 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 14:52:06,777 | INFO | PDF indexado correctamente. Chunks: 2
+2026-07-09 14:53:01,135 | INFO | Nueva pregunta: La exploración espacial en 2026
+2026-07-09 14:53:01,329 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 14:53:28,934 | INFO | Nueva pregunta: ¿De qué trata el documento?
+2026-07-09 14:54:11,381 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-09 14:54:22,879 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 14:55:14,869 | INFO | Historial guardado
+2026-07-09 14:56:12,460 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-09 14:57:22,892 | INFO | Historial guardado
+2026-07-09 15:02:30,771 | INFO | Nueva pregunta: ¿De qué trata el documento?
+2026-07-09 15:02:35,671 | INFO | HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 15:03:42,498 | INFO | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-09 15:04:07,048 | INFO | Historial guardado
+2026-07-09 15:08:46,229 | INFO | Nueva pregunta: ¿Qué dice el documento sobre los beneficios sociales de la exploración espacial?
+2026-07-09 15:08:49,949 | INFO | HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
