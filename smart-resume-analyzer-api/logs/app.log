@@ -27,3 +27,162 @@
 2026-07-09 15:04:07,048 | INFO | Historial guardado
 2026-07-09 15:08:46,229 | INFO | Nueva pregunta: ¿Qué dice el documento sobre los beneficios sociales de la exploración espacial?
 2026-07-09 15:08:49,949 | INFO | HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 15:09:49,158 | INFO | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-09 15:10:04,977 | INFO | Historial guardado
+2026-07-09 15:22:29,461 | INFO | Indexando PDF: ./documents\La_exploracion_espacial_2026.pdf
+2026-07-09 15:22:38,304 | INFO | HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 15:22:38,479 | INFO | PDF indexado correctamente. Chunks: 2
+2026-07-09 15:22:42,454 | INFO | Nueva pregunta: ¿Qué dice el documento sobre los beneficios sociales de la exploración espacial?
+2026-07-09 15:22:44,700 | INFO | HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 15:22:46,833 | INFO | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 400 Bad Request"
+2026-07-09 15:22:46,836 | ERROR | "nomic-embed-text" does not support chat (status code: 400)
+Traceback (most recent call last):
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\app\services\rag_service.py", line 59, in ask
+    response = llm.invoke(prompt)
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 476, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1849, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1656, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1994, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1200, in _generate
+    final_chunk = self._chat_stream_with_aggregation(
+        messages, stop, run_manager, verbose=self.verbose, **kwargs
+    )
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1135, in _chat_stream_with_aggregation
+    for chunk in self._iterate_over_stream(messages, stop, **kwargs):
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1224, in _iterate_over_stream
+    for stream_resp in self._create_chat_stream(messages, stop, **kwargs):
+                       ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1122, in _create_chat_stream
+    yield from self._client.chat(**chat_params)
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\ollama\_client.py", line 189, in inner
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: "nomic-embed-text" does not support chat (status code: 400)
+2026-07-09 15:22:47,045 | ERROR | No fue posible procesar la consulta.
+2026-07-09 15:22:58,074 | INFO | Nueva pregunta: ¿Qué dice el documento sobre los beneficios sociales de la exploración espacial?
+2026-07-09 15:23:00,288 | INFO | HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 15:23:02,355 | INFO | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 400 Bad Request"
+2026-07-09 15:23:02,357 | ERROR | "nomic-embed-text" does not support chat (status code: 400)
+Traceback (most recent call last):
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\app\services\rag_service.py", line 59, in ask
+    response = llm.invoke(prompt)
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 476, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1849, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1656, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1994, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1200, in _generate
+    final_chunk = self._chat_stream_with_aggregation(
+        messages, stop, run_manager, verbose=self.verbose, **kwargs
+    )
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1135, in _chat_stream_with_aggregation
+    for chunk in self._iterate_over_stream(messages, stop, **kwargs):
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1224, in _iterate_over_stream
+    for stream_resp in self._create_chat_stream(messages, stop, **kwargs):
+                       ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1122, in _create_chat_stream
+    yield from self._client.chat(**chat_params)
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\ollama\_client.py", line 189, in inner
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: "nomic-embed-text" does not support chat (status code: 400)
+2026-07-09 15:23:02,361 | ERROR | No fue posible procesar la consulta.
+2026-07-09 15:27:01,225 | INFO | Nueva pregunta: ¿Qué dice el documento sobre los beneficios sociales de la exploración espacial?
+2026-07-09 15:27:05,727 | INFO | HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 15:27:07,997 | INFO | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 400 Bad Request"
+2026-07-09 15:27:07,998 | ERROR | "nomic-embed-text" does not support chat (status code: 400)
+Traceback (most recent call last):
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\app\services\rag_service.py", line 59, in ask
+    response = llm.invoke(prompt)
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 476, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1849, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1656, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1994, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1200, in _generate
+    final_chunk = self._chat_stream_with_aggregation(
+        messages, stop, run_manager, verbose=self.verbose, **kwargs
+    )
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1135, in _chat_stream_with_aggregation
+    for chunk in self._iterate_over_stream(messages, stop, **kwargs):
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1224, in _iterate_over_stream
+    for stream_resp in self._create_chat_stream(messages, stop, **kwargs):
+                       ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 1122, in _create_chat_stream
+    yield from self._client.chat(**chat_params)
+  File "C:\Users\Franc\Desktop\SmartResumeAnalyzer\smart-resume-analyzer-api\venv\Lib\site-packages\ollama\_client.py", line 189, in inner
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: "nomic-embed-text" does not support chat (status code: 400)
+2026-07-09 15:27:08,021 | ERROR | No fue posible procesar la consulta.
+2026-07-09 15:30:29,845 | INFO | Nueva pregunta: ¿Qué dice el documento sobre los beneficios sociales de la exploración espacial?
+2026-07-09 15:30:34,592 | INFO | HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+2026-07-09 15:31:31,650 | INFO | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-09 15:31:47,902 | INFO | Historial guardado

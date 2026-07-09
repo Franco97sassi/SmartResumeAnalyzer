@@ -31,13 +31,18 @@ class Settings:
 
     OLLAMA_NUM_PREDICT = int(os.getenv(
         "OLLAMA_NUM_PREDICT",
-        "512"
+        "256"
     ))
 
     OLLAMA_TEMPERATURE = float(os.getenv(
         "OLLAMA_TEMPERATURE",
         "0.2"
     ))
+    RAG_SEARCH_K = int(os.getenv(
+        "RAG_SEARCH_K",
+        "3"
+    ))
+
     EMBEDDING_MODEL = os.getenv(
         "EMBEDDING_MODEL",
         "nomic-embed-text"
